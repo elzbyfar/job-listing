@@ -1,0 +1,11 @@
+#page-description-container {
+  display: flex;
+}
+.page-description {
+  width: 50%;
+}
+.page-image {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
