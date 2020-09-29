@@ -11,37 +11,71 @@ const Filters = () => {
 
   const [options, setOptions] = useState({
     departments: [
-      { value: "All Departments", label: "All Departments" },
-      { value: "Engineering", label: "Engineering" },
-      { value: "Customer Success", label: "Customer Success" },
-      { value: "Marketing", label: "Marketing" },
+      {
+        setter: setSelectedDepartment,
+        value: "All Departments",
+        label: "All Departments",
+      },
+      {
+        setter: setSelectedDepartment,
+        value: "Engineering",
+        label: "Engineering",
+      },
+      {
+        setter: setSelectedDepartment,
+        value: "Customer Success",
+        label: "Customer Success",
+      },
+      {
+        setter: setSelectedDepartment,
+        value: "Marketing",
+        label: "Marketing",
+      },
     ],
     locations: [
-      { value: "All Locations", label: "All Locations" },
-      { value: "New York City", label: "New York City" },
-      { value: "San Francisco", label: "San Francisco" },
+      {
+        setter: setSelectedLocation,
+        value: "All Locations",
+        label: "All Locations",
+      },
+      {
+        setter: setSelectedLocation,
+        value: "New York City",
+        label: "New York City",
+      },
+      {
+        setter: setSelectedLocation,
+        value: "San Francisco",
+        label: "San Francisco",
+      },
     ],
   });
 
-  const handleSelection = (event) => {};
+  const handleDropdown = (selection) => {
+    selection.setter(selection.value);
+  };
 
   return (
     <section id="filters-container">
       <div className="filter-container">
-        <small>DEPARTMENT</small>
+        <small className="small-title">DEPARTMENT</small>
         <Select
           value={selectedDepartment}
           name="department"
-          onChange={(e) => handleSelection(e)}
+          className="dropdown"
+          onChange={(selection) => handleDropdown(selection)}
           options={options.departments}
+          placeholder={selectedDepartment}
         />
       </div>
       <div className="filter-container">
-        <small>LOCATION</small>
+        <small className="small-title">LOCATION</small>
         <Select
           value={selectedLocation}
           name="location"
-          onChange={(e) => handleSelection(e)}
+          className="dropdown"
+          onChange={(selection) => handleDropdown(selection)}
+          placeholder={selectedLocation}
           options={options.locations}
         />
       </div>

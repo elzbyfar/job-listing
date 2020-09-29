@@ -1,11 +1,30 @@
-#page-description-container {
+#page-description-section {
   display: flex;
+  margin-bottom: 5rem;
 }
-.page-description {
+.page-description-container {
   width: 50%;
 }
-.page-image {
+.page-image-container {
   display: flex;
   justify-content: center;
   width: 50%;
+}
+.open-positions-image {
+  width: 20rem;
+  height: auto;
+  object-fit: contain;
+}
+.small-title {
+  font-size: 1rem;
+  color: #666666;
+}
+.large-title {
+  font-size: 4rem;
+  color: #333333;
+  margin: 1rem 0 2rem 0;
+}
+.page-description {
+  font-size: 1.5rem;
+  color: #666666;
 }

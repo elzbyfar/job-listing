@@ -3,6 +3,12 @@
   justify-content: center;
 }
 .filter-container {
-  width: 224px;
-  margin-right: 32px;
+  width: 14rem;
+  margin-right: 2rem;
+}
+.dropdown {
+  margin-top: 0.75rem;
+}
+.css-1okebmr-indicatorSeparator {
+  background-color: transparent !important;
 }
