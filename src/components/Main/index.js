@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import Filters from "../Filters";
 import Results from "../Results";
 import PageDescription from "../PageDescription";
 import "./styles.css";
 
-function App() {
+const Main = () => {
   return (
     <div className="App">
       <PageDescription />
@@ -12,6 +12,6 @@ function App() {
       <Results />
     </div>
   );
-}
+};
 
-export default App;
+export default Main;

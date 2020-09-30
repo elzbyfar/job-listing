@@ -1,83 +1,86 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
-import Select from "react-select";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { MouseEventContext } from "../../contexts/MouseEventContext";
+import { FilterContext } from "../../contexts/FilterContext";
 import "./styles.css";
 
 const Filters = () => {
-  const [selectedDepartment, setSelectedDepartment] = useState(
-    "All Departments"
-  );
-  const [selectedLocation, setSelectedLocation] = useState("All Locations");
+  const { options, selection, setSelection } = useContext(FilterContext);
+  const { menuOpen, setMenuOpen } = useContext(MouseEventContext);
 
-  const [options, setOptions] = useState({
-    departments: [
-      {
-        setter: setSelectedDepartment,
-        value: "All Departments",
-        label: "All Departments",
-      },
-      {
-        setter: setSelectedDepartment,
-        value: "Engineering",
-        label: "Engineering",
-      },
-      {
-        setter: setSelectedDepartment,
-        value: "Customer Success",
-        label: "Customer Success",
-      },
-      {
-        setter: setSelectedDepartment,
-        value: "Marketing",
-        label: "Marketing",
-      },
-    ],
-    locations: [
-      {
-        setter: setSelectedLocation,
-        value: "All Locations",
-        label: "All Locations",
-      },
-      {
-        setter: setSelectedLocation,
-        value: "New York City",
-        label: "New York City",
-      },
-      {
-        setter: setSelectedLocation,
-        value: "San Francisco",
-        label: "San Francisco",
-      },
-    ],
-  });
+  const toggleDropdown = (menuName) => {
+    setMenuOpen((prevState) => ({
+      ...prevState,
+      [menuName]: !prevState[menuName],
+    }));
+  };
 
-  const handleDropdown = (selection) => {
-    selection.setter(selection.value);
+  const handleSelection = (menuName, option) => {
+    setSelection((prevState) => ({
+      ...prevState,
+      [menuName]: option,
+    }));
   };
 
   return (
     <section id="filters-container">
       <div className="filter-container">
         <small className="small-title">DEPARTMENT</small>
-        <Select
-          value={selectedDepartment}
-          name="department"
-          className="dropdown"
-          onChange={(selection) => handleDropdown(selection)}
-          options={options.departments}
-          placeholder={selectedDepartment}
-        />
+        <div
+          onClick={() => toggleDropdown("department")}
+          className={menuOpen.department ? "dropdown-open" : "dropdown"}
+        >
+          <div className="dropdown-header">
+            <span>{selection.department}</span>
+            <FontAwesomeIcon icon={faCaretDown} />
+          </div>
+          <ul>
+            {options.departments &&
+              options.departments.map((option, i) => {
+                if (option !== selection.department) {
+                  return (
+                    <li
+                      onClick={() => handleSelection("department", option)}
+                      className="dropdown-option"
+                      key={i}
+                    >
+                      {option}
+                    </li>
+                  );
+                }
+              })}
+          </ul>
+        </div>
       </div>
       <div className="filter-container">
         <small className="small-title">LOCATION</small>
-        <Select
-          value={selectedLocation}
-          name="location"
-          className="dropdown"
-          onChange={(selection) => handleDropdown(selection)}
-          placeholder={selectedLocation}
-          options={options.locations}
-        />
+        <div
+          onClick={() => toggleDropdown("location")}
+          className={menuOpen.location ? "dropdown-open" : "dropdown"}
+        >
+          <div className="dropdown-header">
+            <span>{selection.location}</span>
+            <FontAwesomeIcon icon={faCaretDown} />
+          </div>
+          <ul>
+            {options.locations &&
+              options.locations.map((option, i) => {
+                if (option !== selection.location) {
+                  return (
+                    <li
+                      onClick={() => handleSelection("location", option)}
+                      className="dropdown-option"
+                      key={i}
+                    >
+                      {option}
+                    </li>
+                  );
+                }
+              })}
+          </ul>
+        </div>
       </div>
     </section>
   );

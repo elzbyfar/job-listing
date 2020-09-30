@@ -8,7 +8,33 @@
 }
 .dropdown {
   margin-top: 0.75rem;
+  border: 1px solid #999;
+  color: #666;
+  height: 2rem;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
-.css-1okebmr-indicatorSeparator {
-  background-color: transparent !important;
+.dropdown-open {
+  margin-top: 0.75rem;
+  border: 1px solid #999;
+  color: #666;
+  height: calc(100% - 2rem);
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.dropdown-header {
+  display: flex;
+  padding: 8px 12px 8px 12px;
+  justify-content: space-between;
+}
+.dropdown-option {
+  padding: 8px 12px 8px 12px;
+  list-style: none;
+}
+.dropdown-option:hover {
+  background-color: #f9f9f9;
 }
