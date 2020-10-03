@@ -1,7 +1,7 @@
 import urls from "./urls";
 
 const getListings = async () => {
-  const result = await fetch("http://localhost:3000/jobs", {
+  const result = await fetch(urls.getListings(), {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
