@@ -1,0 +1,16 @@
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: repeat(8, 1vw); */
+  grid-gap: 15px;
+}
+
+.result-title-container {
+  display: flex;
+  align-items: center;
+}
+.result-title {
+  font-size: 1.8rem;
+  margin-left: 0.8rem;
+  color: #333;
+}

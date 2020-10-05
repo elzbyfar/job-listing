@@ -1,5 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import { FilterContext } from "../../contexts/FilterContext";
+import { ResultsContext } from "../../contexts/ResultsContext";
 import customerSuccess from "../../assets/customer-success.png";
 import engineering from "../../assets/engineering.png";
 import marketing from "../../assets/marketing.png";
@@ -7,6 +8,7 @@ import "./styles.css";
 
 const Results = () => {
   const { listings } = useContext(FilterContext);
+  const { activeDepartments } = useContext(ResultsContext);
 
   const existingDepartments = new Set();
   const deptIcons = {
@@ -15,8 +17,8 @@ const Results = () => {
     Marketing: marketing,
   };
 
-  const htmlFunc = () => {
-    let stuff = listings.map((listing, i) => {
+  const resultsLayout = () => {
+    let layout = listings.map((listing, i) => {
       let deptName = listing.departments[0].name;
       let locations = listing.offices;
       let jobTitle = listing.title;
@@ -28,11 +30,12 @@ const Results = () => {
 
         output.push(
           <Fragment key={i}>
-            <div>
+            <div className="result-title-container">
               <img alt={`${deptName}`} src={`${deptIcons[deptName]}`} />
-              <h2>{deptName}</h2>
+              <h2 className="result-title">{deptName}</h2>
             </div>
             <div>
+              <hr />
               {locations.map((location, j) => {
                 if (j > 0) {
                   return <span key={j}>, {location.name}</span>;
@@ -50,6 +53,7 @@ const Results = () => {
 
       output.push(
         <div key={i}>
+          <hr />
           {locations.map((location, j) => {
             if (j > 0) {
               return <span key={j}>, {location.name}</span>;
@@ -65,10 +69,12 @@ const Results = () => {
 
       return output[0];
     });
-    return stuff;
+    return layout;
   };
 
-  return <div>{htmlFunc()}</div>;
+  console.log(activeDepartments);
+
+  return <div>{resultsLayout()}</div>;
 };
 
 export default Results;
