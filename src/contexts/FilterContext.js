@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, createContext } from "react";
 import formatOptions from "../util/formatOptions";
 import getListings from "../util/getListings";
 import filterData from "../util/filterData";
+import setActiveDepts from "../util/setActiveDepts";
 
 export const FilterContext = createContext({});
 
@@ -15,6 +16,7 @@ const FilterProvider = ({ children }) => {
     location: "All Locations",
   });
   const [listings, setListings] = useState([]);
+  const [activeDepartments, setActiveDepartments] = useState([]);
 
   useEffect(() => {
     const buildDropdownMenus = async () => {
@@ -25,7 +27,9 @@ const FilterProvider = ({ children }) => {
         selection.department,
         selection.location
       );
+      const activeDepts = await setActiveDepts(allListings);
 
+      setActiveDepartments(activeDepts);
       setListings(filteredListings);
       setOptions(menuOptions);
     };
@@ -38,12 +42,15 @@ const FilterProvider = ({ children }) => {
       options,
       listings,
       selection,
+      activeDepartments,
       setOptions,
       setListings,
       setSelection,
+      setActiveDepartments,
     }),
-    [options, listings, selection]
+    [options, listings, selection, activeDepartments]
   );
+
   return (
     <FilterContext.Provider value={FilterProviderObject}>
       {children}

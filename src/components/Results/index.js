@@ -8,7 +8,6 @@ import "./styles.css";
 
 const Results = () => {
   const { listings } = useContext(FilterContext);
-  const { activeDepartments } = useContext(ResultsContext);
 
   const existingDepartments = new Set();
   const deptIcons = {
@@ -71,8 +70,6 @@ const Results = () => {
     });
     return layout;
   };
-
-  console.log(activeDepartments);
 
   return <div>{resultsLayout()}</div>;
 };

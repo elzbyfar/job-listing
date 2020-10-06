@@ -1,10 +1,16 @@
-import React, { useState, useEffect, useMemo, createContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useContext,
+  createContext,
+} from "react";
 import { FilterContext } from "./FilterContext";
 
 export const ResultsContext = createContext({});
 
 const ResultsProvider = ({ children }) => {
-  // const { listings } = useContext(FilterContext);
+  const { listings } = useContext(FilterContext);
 
   const [activeDepartments, setActiveDepartments] = useState(["hello"]);
 
