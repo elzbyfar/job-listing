@@ -1,13 +1,13 @@
 const setActiveDepts = async (allListings) => {
-  const depts = await new Set();
+  const activeDepts = await new Set();
 
   await allListings.forEach((listing) => {
     if (listing.departments) {
-      depts.add(listing.departments[0].name);
+      activeDepts.add(listing.departments[0].name);
     }
   });
 
-  return depts;
+  return Array.from(activeDepts);
 };
 
 export default setActiveDepts;

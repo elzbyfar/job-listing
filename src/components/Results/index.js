@@ -1,15 +1,13 @@
 import React, { Fragment, useContext } from "react";
 import { FilterContext } from "../../contexts/FilterContext";
-import { ResultsContext } from "../../contexts/ResultsContext";
 import customerSuccess from "../../assets/customer-success.png";
 import engineering from "../../assets/engineering.png";
 import marketing from "../../assets/marketing.png";
 import "./styles.css";
 
 const Results = () => {
-  const { listings } = useContext(FilterContext);
+  const { listings, activeDepartments } = useContext(FilterContext);
 
-  const existingDepartments = new Set();
   const deptIcons = {
     Engineering: engineering,
     "Customer Success": customerSuccess,
@@ -17,58 +15,33 @@ const Results = () => {
   };
 
   const resultsLayout = () => {
-    let layout = listings.map((listing, i) => {
-      let deptName = listing.departments[0].name;
-      let locations = listing.offices;
-      let jobTitle = listing.title;
+    let items = activeDepartments.map((deptName, i) => {
+      let deptSections = [];
 
-      let output = [];
-
-      if (!existingDepartments.has(deptName)) {
-        existingDepartments.add(deptName);
-
-        output.push(
-          <Fragment key={i}>
-            <div className="result-title-container">
-              <img alt={`${deptName}`} src={`${deptIcons[deptName]}`} />
-              <h2 className="result-title">{deptName}</h2>
-            </div>
-            <div>
-              <hr />
-              {locations.map((location, j) => {
-                if (j > 0) {
-                  return <span key={j}>, {location.name}</span>;
-                } else {
-                  return <span key={j}>{location.name}</span>;
-                }
-              })}
-              <div>
-                <h2>{jobTitle}</h2>
-              </div>
-            </div>
-          </Fragment>
-        );
-      }
-
-      output.push(
-        <div key={i}>
-          <hr />
-          {locations.map((location, j) => {
-            if (j > 0) {
-              return <span key={j}>, {location.name}</span>;
-            } else {
-              return <span key={j}>{location.name}</span>;
+      deptSections.push(
+        <Fragment key={i}>
+          <div className="result-title-container">
+            <img alt={`${deptName}`} src={`${deptIcons[deptName]}`} />
+            <h2 className="result-title">{deptName}</h2>
+          </div>
+          {listings.map((listing, j) => {
+            if (listing.departments[0].name === deptName) {
+              return (
+                <div key={j}>
+                  {listing.offices.map((office, k) => {
+                    return <span key={k}>{office.name}</span>;
+                  })}
+                  <h3>{listing.title}</h3>
+                </div>
+              );
             }
           })}
-          <div>
-            <h2>{jobTitle}</h2>
-          </div>
-        </div>
+        </Fragment>
       );
 
-      return output[0];
+      return deptSections;
     });
-    return layout;
+    return items;
   };
 
   return <div>{resultsLayout()}</div>;
