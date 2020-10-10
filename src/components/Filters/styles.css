@@ -1,6 +1,8 @@
 #filters-container {
   display: flex;
+  position: absolute;
   justify-content: center;
+  width: 100%;
 }
 .filter-container {
   width: 14rem;
@@ -15,12 +17,19 @@
   overflow: hidden;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  background-color: #fff;
+  /* width: 15rem; */
 }
 .dropdown-open {
+  /* position: absolute; */
+  /* width: 15rem; */
   margin-top: 0.75rem;
+  font-size: 1.25rem;
   border: 1px solid #999;
   color: #666;
-  height: calc(100% - 2rem);
+  background-color: #fff;
+  /* height: calc(100% - 2rem); */
+  height: 9.5rem;
   border-radius: 3px;
   overflow: hidden;
   cursor: pointer;
@@ -29,10 +38,12 @@
 .dropdown-header {
   display: flex;
   padding: 8px 12px 8px 12px;
+  font-size: 1.25rem;
   justify-content: space-between;
 }
 .dropdown-option {
   padding: 8px 12px 8px 12px;
+  font-size: 1.25rem;
   list-style: none;
 }
 .dropdown-option:hover {

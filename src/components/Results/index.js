@@ -20,22 +20,31 @@ const Results = () => {
 
       deptSections.push(
         <Fragment key={i}>
-          <div className="result-title-container">
+          <div className="department-name-container">
             <img alt={`${deptName}`} src={`${deptIcons[deptName]}`} />
-            <h2 className="result-title">{deptName}</h2>
+            <h2 className="department-name">{deptName}</h2>
           </div>
-          {listings.map((listing, j) => {
-            if (listing.departments[0].name === deptName) {
-              return (
-                <div key={j}>
-                  {listing.offices.map((office, k) => {
-                    return <span key={k}>{office.name}</span>;
-                  })}
-                  <h3>{listing.title}</h3>
-                </div>
-              );
-            }
-          })}
+          <div className="results-grid">
+            {listings.map((listing, j) => {
+              if (listing.department.name === deptName) {
+                return (
+                  <div className="job-container" key={j}>
+                    <hr className="decorative-line" />
+                    {listing.offices.map((office, k) => {
+                      return (
+                        <span className="office-names" key={k}>
+                          {k === listing.offices.length - 1
+                            ? office.name
+                            : office.name + ", "}
+                        </span>
+                      );
+                    })}
+                    <h3 className="job-title">{listing.title}</h3>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </Fragment>
       );
 
@@ -44,7 +53,7 @@ const Results = () => {
     return items;
   };
 
-  return <div>{resultsLayout()}</div>;
+  return <div className="results-container">{resultsLayout()}</div>;
 };
 
 export default Results;

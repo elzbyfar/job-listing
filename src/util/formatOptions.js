@@ -1,9 +1,9 @@
-const formatOptions = async (data) => {
+const formatOptions = (data) => {
   const departments = new Set(["All Departments"]);
   const offices = new Set(["All Locations"]);
 
-  data.forEach((listing) => {
-    let departmentName = listing.departments[0].name;
+  data.jobs.forEach((listing) => {
+    let departmentName = listing.department.name;
     if (!departments.has(departmentName)) {
       departments.add(departmentName);
     }

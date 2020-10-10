@@ -16,11 +16,12 @@ const PageDescription = () => {
         </p>
       </div>
       <div className="page-image-container">
-        <img
+        <div className="open-positions-image" />
+        {/* <img
           src={openPositions}
           alt="Open Positions"
           className="open-positions-image"
-        />
+        /> */}
       </div>
     </section>
   );

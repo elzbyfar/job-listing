@@ -27,7 +27,7 @@ const FilterProvider = ({ children }) => {
         selection.department,
         selection.location
       );
-      const activeDepts = await setActiveDepts(allListings);
+      const activeDepts = await setActiveDepts(filteredListings);
 
       setActiveDepartments(activeDepts);
       setListings(filteredListings);

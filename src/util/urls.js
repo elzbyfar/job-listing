@@ -1,6 +1,6 @@
 const urls = {
-  getListings: function () {
-    return "http://localhost:3000/jobs";
+  getListings: () => {
+    return "https://dl.dropboxusercontent.com/s/90imekuizwoidih/job_listings.json";
   },
 };
 

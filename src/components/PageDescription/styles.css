@@ -11,8 +11,21 @@
   width: 50%;
 }
 .open-positions-image {
+  background: url(../../assets/open-positions.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   width: 20rem;
-  height: auto;
+  /* height: auto; */
+  object-fit: contain;
+}
+.open-positions-image:hover {
+  background: url(../../assets/open-positions.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 20rem;
+  /* height: auto; */
   object-fit: contain;
 }
 .small-title {

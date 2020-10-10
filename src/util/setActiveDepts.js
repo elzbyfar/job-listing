@@ -1,9 +1,9 @@
-const setActiveDepts = async (allListings) => {
-  const activeDepts = await new Set();
+const setActiveDepts = (allListings) => {
+  const activeDepts = new Set();
 
-  await allListings.forEach((listing) => {
-    if (listing.departments) {
-      activeDepts.add(listing.departments[0].name);
+  allListings.forEach((listing) => {
+    if (listing.department) {
+      activeDepts.add(listing.department.name);
     }
   });
 
