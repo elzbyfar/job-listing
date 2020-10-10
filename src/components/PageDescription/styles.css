@@ -16,7 +16,6 @@
   background-position: center;
   background-size: contain;
   width: 20rem;
-  /* height: auto; */
   object-fit: contain;
 }
 .open-positions-image:hover {
@@ -25,7 +24,6 @@
   background-position: center;
   background-size: contain;
   width: 20rem;
-  /* height: auto; */
   object-fit: contain;
 }
 .small-title {
