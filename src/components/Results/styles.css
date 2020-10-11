@@ -6,13 +6,11 @@
 .results-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-gap: 4.5rem; */
   margin-bottom: 1.5rem;
 }
 .department-name-container {
   display: flex;
   align-items: center;
-  /* margin-top: 6rem; */
   margin-bottom: 4rem;
 }
 .department-name {
@@ -22,6 +20,15 @@
 }
 .decorative-line {
   margin-bottom: 1.5rem;
+}
+.engineering-0-line {
+  border-color: #18bfff;
+}
+.customer-success-0-line {
+  border-color: #2d7ff9;
+}
+.marketing-0-line {
+  border-color: #f82b60;
 }
 .office-names {
   color: #666;

@@ -17,11 +17,6 @@ const PageDescription = () => {
       </div>
       <div className="page-image-container">
         <div className="open-positions-image" />
-        {/* <img
-          src={openPositions}
-          alt="Open Positions"
-          className="open-positions-image"
-        /> */}
       </div>
     </section>
   );

@@ -13,11 +13,9 @@ const Results = () => {
     "Customer Success": customerSuccess,
     Marketing: marketing,
   };
-
   const resultsLayout = () => {
     let items = activeDepartments.map((deptName, i) => {
       let deptSections = [];
-
       deptSections.push(
         <Fragment key={i}>
           <div className="department-name-container">
@@ -29,7 +27,11 @@ const Results = () => {
               if (listing.department.name === deptName) {
                 return (
                   <div className="job-container" key={j}>
-                    <hr className="decorative-line" />
+                    <hr
+                      className={`decorative-line ${deptName
+                        .replace(" ", "-")
+                        .toLowerCase()}-${j}-line`}
+                    />
                     {listing.offices.map((office, k) => {
                       return (
                         <span className="office-names" key={k}>
