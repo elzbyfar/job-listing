@@ -3,7 +3,9 @@ import { FilterContext } from "../../contexts/FilterContext";
 import customerSuccess from "../../assets/customer-success.png";
 import engineering from "../../assets/engineering.png";
 import marketing from "../../assets/marketing.png";
-import rightArrow from "../../assets/right-arrow.svg";
+import engineeringArrow from "../../assets/engineering-arrow.svg";
+import customerSuccessArrow from "../../assets/customer-success-arrow.svg";
+import marketingArrow from "../../assets/marketing-arrow.svg";
 import "./styles.css";
 
 const Results = () => {
@@ -38,9 +40,13 @@ const Results = () => {
               if (listing.department.name === deptName) {
                 return (
                   <div className="job-container" key={j}>
-                    <div className={border(deptName)}>
-                      <div className="arrow-container">
-                        <span className="border-arrow"></span>
+                    <div className="border-arrow-container">
+                      <div className={border(deptName)}>
+                        <img
+                          src={engineeringArrow}
+                          alt="right-arrow"
+                          className="arrow"
+                        ></img>
                       </div>
                     </div>
                     {listing.offices.map((office, k) => {
