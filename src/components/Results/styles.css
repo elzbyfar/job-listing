@@ -1,33 +1,61 @@
-.results-container {
+.results-wrapper {
   position: absolute;
   margin-top: 10rem;
   z-index: -1;
 }
-.results-grid {
+.listings-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 1.5rem;
 }
-.department-name-container {
+.dept-name-container {
   display: flex;
   align-items: center;
   margin-bottom: 4rem;
 }
-.department-name {
+.dept-name {
   font-size: 2rem;
   margin-left: 0.8rem;
   color: #333;
 }
-.decorative-line {
+.job-container {
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  margin-right: 4.5rem;
+  transition: all 0.4s ease-in-out;
+}
+.job-container:hover {
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  /* background: linear-gradient(#18bfff, #18beff73, #18beff28, transparent); */
+}
+.border {
+  /* position: absolute; */
+  /* width: 25%; */
+  border-top: 1px solid #999;
   margin-bottom: 1.5rem;
 }
-.engineering-0-line {
-  border-color: #18bfff;
+.arrow-container {
+  position: absolute;
+  width: 27%;
 }
-.customer-success-0-line {
+.border-arrow {
+  background: url(../../assets/right-arrow.svg);
+  position: absolute;
+  /* fill: #f82b60; */
+  right: 0;
+  top: 0;
+  margin-top: -9.6px;
+  width: 10px;
+}
+.job-container:hover .engineering-line {
+  border-color: #18bfff;
+  transition: all 0.1s ease-in-out;
+}
+.job-container:hover .customer-success-line {
   border-color: #2d7ff9;
 }
-.marketing-0-line {
+.job-container:hover .marketing-line {
   border-color: #f82b60;
 }
 .office-names {
@@ -35,10 +63,8 @@
   font-size: 1rem;
 }
 .job-title {
+  color: #333;
   margin-top: 0.5rem;
   font-size: 1.5rem;
-}
-.job-container {
-  margin-bottom: 4.5rem;
-  padding-right: 4.5rem;
+  transition: all 0.2s ease-in-out;
 }

@@ -3,6 +3,7 @@ import { FilterContext } from "../../contexts/FilterContext";
 import customerSuccess from "../../assets/customer-success.png";
 import engineering from "../../assets/engineering.png";
 import marketing from "../../assets/marketing.png";
+import rightArrow from "../../assets/right-arrow.svg";
 import "./styles.css";
 
 const Results = () => {
@@ -13,31 +14,39 @@ const Results = () => {
     "Customer Success": customerSuccess,
     Marketing: marketing,
   };
+
+  const border = (deptName) => {
+    return `border ${deptName.replace(" ", "-").toLowerCase()}-line`;
+  };
+
+  const officeName = (k, listing, office) => {
+    return k === listing.offices.length - 1 ? office.name : office.name + ", ";
+  };
+
   const resultsLayout = () => {
-    let items = activeDepartments.map((deptName, i) => {
+    let results = activeDepartments.map((deptName, i) => {
       let deptSections = [];
+
       deptSections.push(
         <Fragment key={i}>
-          <div className="department-name-container">
+          <div className="dept-name-container">
             <img alt={`${deptName}`} src={`${deptIcons[deptName]}`} />
-            <h2 className="department-name">{deptName}</h2>
+            <h2 className="dept-name">{deptName}</h2>
           </div>
-          <div className="results-grid">
+          <div className="listings-grid">
             {listings.map((listing, j) => {
               if (listing.department.name === deptName) {
                 return (
                   <div className="job-container" key={j}>
-                    <hr
-                      className={`decorative-line ${deptName
-                        .replace(" ", "-")
-                        .toLowerCase()}-${j}-line`}
-                    />
+                    <div className={border(deptName)}>
+                      <div className="arrow-container">
+                        <span className="border-arrow"></span>
+                      </div>
+                    </div>
                     {listing.offices.map((office, k) => {
                       return (
                         <span className="office-names" key={k}>
-                          {k === listing.offices.length - 1
-                            ? office.name
-                            : office.name + ", "}
+                          {officeName(k, listing, office)}
                         </span>
                       );
                     })}
@@ -52,10 +61,10 @@ const Results = () => {
 
       return deptSections;
     });
-    return items;
+    return results;
   };
 
-  return <div className="results-container">{resultsLayout()}</div>;
+  return <div className="results-wrapper">{resultsLayout()}</div>;
 };
 
 export default Results;
