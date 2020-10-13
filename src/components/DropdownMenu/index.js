@@ -5,8 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const DropdownMenu = (props) => {
-  const { options, selection, setSelection } = useContext(FilterContext);
-  const { menuOpen, setMenuOpen } = useContext(MouseEventContext);
+  const {
+    options,
+    selection,
+    setSelection,
+    menuOpen,
+    setMenuOpen,
+  } = useContext(FilterContext);
 
   const toggleDropdown = (menuName) => {
     setMenuOpen((prevState) => ({

@@ -7,6 +7,10 @@ import setActiveDepts from "../util/setActiveDepts";
 export const FilterContext = createContext({});
 
 const FilterProvider = ({ children }) => {
+  const [menuOpen, setMenuOpen] = useState({
+    department: false,
+    location: false,
+  });
   const [options, setOptions] = useState({
     departments: [],
     locations: [],
@@ -40,15 +44,17 @@ const FilterProvider = ({ children }) => {
   const FilterProviderObject = useMemo(
     () => ({
       options,
+      menuOpen,
       listings,
       selection,
       activeDepartments,
       setOptions,
+      setMenuOpen,
       setListings,
       setSelection,
       setActiveDepartments,
     }),
-    [options, listings, selection, activeDepartments]
+    [options, menuOpen, listings, selection, activeDepartments]
   );
 
   return (

@@ -29,7 +29,7 @@
   transition: all 0.4s ease-in-out;
 }
 .border-arrow-container {
-  right: 0;
+  /* right: 0; */
 }
 .border {
   display: flex;
@@ -41,6 +41,8 @@
   margin-top: -9px;
   margin-right: -1px;
   width: 10px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
 }
 .job-container:hover .engineering-line {
   border-color: #18bfff;
@@ -51,6 +53,10 @@
 }
 .job-container:hover .marketing-line {
   border-color: #f82b60;
+}
+.job-container:hover .arrow {
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
 }
 .office-names {
   color: #666;

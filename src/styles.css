@@ -3,12 +3,16 @@
   margin: 0;
   padding: 0;
 }
+html,
+body {
+  overflow-x: hidden;
+  background-color: #fafafa;
+}
 .App {
   font-family: "GT Eesti";
   padding: 7rem 3rem;
   font-weight: 400;
 }
-
 @font-face {
   font-family: "GT Eesti";
   src: url("https://airtable.com/font/GT-Eesti-Display-Regular-2.eot")

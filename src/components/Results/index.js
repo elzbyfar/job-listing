@@ -3,9 +3,9 @@ import { FilterContext } from "../../contexts/FilterContext";
 import customerSuccess from "../../assets/customer-success.png";
 import engineering from "../../assets/engineering.png";
 import marketing from "../../assets/marketing.png";
-import engineeringArrow from "../../assets/engineering-arrow.svg";
-import customerSuccessArrow from "../../assets/customer-success-arrow.svg";
-import marketingArrow from "../../assets/marketing-arrow.svg";
+import engineeringArrow from "../../assets/arrow-engineering.svg";
+import customerSuccessArrow from "../../assets/arrow-customer-success.svg";
+import marketingArrow from "../../assets/arrow-marketing.svg";
 import "./styles.css";
 
 const Results = () => {
@@ -13,8 +13,11 @@ const Results = () => {
 
   const deptIcons = {
     Engineering: engineering,
-    "Customer Success": customerSuccess,
     Marketing: marketing,
+    "Customer Success": customerSuccess,
+    "Engineering Arrow": engineeringArrow,
+    "Marketing Arrow": marketingArrow,
+    "Customer Success Arrow": customerSuccessArrow,
   };
 
   const border = (deptName) => {
@@ -43,7 +46,7 @@ const Results = () => {
                     <div className="border-arrow-container">
                       <div className={border(deptName)}>
                         <img
-                          src={engineeringArrow}
+                          src={`${deptIcons[`${deptName} Arrow`]}`}
                           alt="right-arrow"
                           className="arrow"
                         ></img>
