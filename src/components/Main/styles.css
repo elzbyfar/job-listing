@@ -30,12 +30,9 @@ body {
 }
 
 @media only screen and (max-width: 832px) {
-  body {
-    background-color: #fafafa;
-  }
   .App {
     overflow-x: hidden;
     font-family: "GT Eesti";
-    margin: 5rem 2.5rem;
+    margin: 5rem 1.5rem;
   }
 }

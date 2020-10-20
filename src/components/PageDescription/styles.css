@@ -50,7 +50,7 @@
   color: #666666;
 }
 
-@media (max-width: 832px) {
+@media only screen and (max-width: 832px) {
   #page-description-section {
     display: flex;
     flex-direction: column;
@@ -80,7 +80,7 @@
   }
   .large-title {
     font-size: 2rem;
-    line-height: 2.25rem;
+    line-height: 1.25;
     color: #333333;
     margin: 0 0 1.5rem 0;
   }
@@ -91,7 +91,8 @@
   }
   .page-description {
     font-size: 1.25rem;
-    line-height: 2.3rem;
+    font-weight: 400;
+    line-height: 1.7;
     color: #666666;
   }
 }

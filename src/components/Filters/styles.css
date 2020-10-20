@@ -22,4 +22,11 @@
     width: 14rem;
     margin-right: 2rem;
   }
+  .filter-title {
+    display: block;
+    letter-spacing: 0.8px;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #666666;
+  }
 }
