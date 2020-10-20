@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { MouseEventContext } from "../../contexts/MouseEventContext";
 import { FilterContext } from "../../contexts/FilterContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import "./styles.css";
 
 const DropdownMenu = (props) => {
   const {
@@ -34,23 +34,23 @@ const DropdownMenu = (props) => {
     >
       <div className="dropdown-header">
         <span>{selection[props.menuName]}</span>
-        <FontAwesomeIcon icon={faCaretDown} />
+        <FontAwesomeIcon className="down-arrow" icon={faCaretDown} />
       </div>
-      <ul>
-        {options[`${props.menuName}s`] &&
-          options[`${props.menuName}s`].map((option, i) => {
-            if (option !== selection[props.menuName]) {
-              return (
-                <li
-                  onClick={() => handleSelection(props.menuName, option)}
-                  className="dropdown-option"
-                  key={i}
-                >
-                  {option}
-                </li>
-              );
-            }
-          })}
+      <ul className="dropdown-options-container">
+        {options[`${props.menuName}s`].map((option, i) => {
+          if (option !== selection[props.menuName]) {
+            return (
+              <li
+                onClick={() => handleSelection(props.menuName, option)}
+                className="dropdown-option"
+                key={i}
+              >
+                {option}
+              </li>
+            );
+          }
+          return;
+        })}
       </ul>
     </div>
   );

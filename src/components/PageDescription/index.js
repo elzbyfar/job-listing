@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.css";
-import openPositions from "../../assets/open-positions.png";
 
 const PageDescription = () => {
   return (
@@ -12,11 +11,12 @@ const PageDescription = () => {
           The ability to make software opens up tremendous creative
           possibilities, and we want to empower people to bring these
           possibilities to life--no mater how ambitious. The good news is that
-          creating software doesn't mean writing code. What will you create?
+          creating software doesn't have to mean writing code. What will you
+          create?
         </p>
       </div>
       <div className="page-image-container">
-        <div className="open-positions-image" />
+        <div className="page-image" />
       </div>
     </section>
   );

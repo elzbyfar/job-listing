@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import Filters from "../Filters";
 import Results from "../Results";
 import PageDescription from "../PageDescription";
-import "./styles.css";
 import { FilterContext } from "../../contexts/FilterContext";
+import "./styles.css";
 
 const Main = () => {
   const { menuOpen, setMenuOpen } = useContext(FilterContext);

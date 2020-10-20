@@ -1,51 +1,25 @@
 #filters-container {
-  display: flex;
-  position: absolute;
   justify-content: center;
+  display: flex;
   width: 100%;
 }
 .filter-container {
   width: 14rem;
   margin-right: 2rem;
 }
-.dropdown {
-  margin-top: 0.75rem;
-  border: 1px solid #999;
-  color: #666;
-  height: 2rem;
-  border-radius: 3px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  background-color: #fff;
-  /* width: 15rem; */
+.filter-title {
+  display: block;
+  letter-spacing: 0.8px;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #666666;
 }
-.dropdown-open {
-  /* position: absolute; */
-  /* width: 15rem; */
-  margin-top: 0.75rem;
-  font-size: 1.25rem;
-  border: 1px solid #999;
-  color: #666;
-  background-color: #fff;
-  /* height: calc(100% - 2rem); */
-  height: 9.5rem;
-  border-radius: 3px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+#ment {
+  margin-left: -5px;
 }
-.dropdown-header {
-  display: flex;
-  padding: 8px 12px 8px 12px;
-  font-size: 1.25rem;
-  justify-content: space-between;
-}
-.dropdown-option {
-  padding: 8px 12px 8px 12px;
-  font-size: 1.25rem;
-  list-style: none;
-}
-.dropdown-option:hover {
-  background-color: #f9f9f9;
+@media only screen and (max-width: 832px) {
+  .filter-container {
+    width: 14rem;
+    margin-right: 2rem;
+  }
 }

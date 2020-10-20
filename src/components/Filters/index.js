@@ -7,11 +7,14 @@ const Filters = () => {
   return (
     <section id="filters-container">
       <div className="filter-container">
-        <small className="small-title">DEPARTMENT</small>
+        <span className="filter-title">
+          {/* Not sure what is causing this bug, but the combination of TM was automatically producing a trademark superscript. */}
+          DEPART<span id="ment"> MENT</span>
+        </span>
         <DropdownMenu menuName="department" />
       </div>
       <div className="filter-container">
-        <small className="small-title">LOCATION</small>
+        <small className="filter-title">LOCATION</small>
         <DropdownMenu menuName="location" />
       </div>
     </section>

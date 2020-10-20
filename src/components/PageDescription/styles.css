@@ -10,7 +10,7 @@
   justify-content: center;
   width: 50%;
 }
-.open-positions-image {
+.page-image {
   background: url(../../assets/open-positions.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -18,7 +18,7 @@
   width: 20rem;
   object-fit: contain;
 }
-.open-positions-image:hover {
+.page-image:hover {
   background: url(../../assets/open-positions.gif);
   background-repeat: no-repeat;
   background-position: center;
@@ -27,15 +27,71 @@
   object-fit: contain;
 }
 .small-title {
+  display: block;
   font-size: 1rem;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  margin-bottom: 1rem;
   color: #666666;
 }
 .large-title {
   font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 500;
   color: #333333;
-  margin: 1rem 0 2rem 0;
+  margin: 0 0 2rem 0;
 }
 .page-description {
   font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
   color: #666666;
+}
+
+@media (max-width: 832px) {
+  #page-description-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .page-description-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  .page-image-container {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+  .page-image {
+    background: url(../../assets/open-positions.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 20rem;
+    object-fit: contain;
+  }
+  .large-title {
+    font-size: 2rem;
+    line-height: 2.25rem;
+    color: #333333;
+    margin: 0 0 1.5rem 0;
+  }
+  .small-title {
+    font-size: 1rem;
+    color: #666666;
+    margin-bottom: 1rem;
+  }
+  .page-description {
+    font-size: 1.25rem;
+    line-height: 2.3rem;
+    color: #666666;
+  }
 }

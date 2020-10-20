@@ -42,27 +42,34 @@ const Results = () => {
             {listings.map((listing, j) => {
               if (listing.department.name === deptName) {
                 return (
-                  <div className="job-container" key={j}>
-                    <div className="border-arrow-container">
-                      <div className={border(deptName)}>
-                        <img
-                          src={`${deptIcons[`${deptName} Arrow`]}`}
-                          alt="right-arrow"
-                          className="arrow"
-                        ></img>
+                  <a
+                    target="_blank"
+                    className="job-link"
+                    href={`https://airtable.com/jobs/${listing.id}`}
+                  >
+                    <div className="job-container" key={j}>
+                      <div className="border-arrow-container">
+                        <div className={border(deptName)}>
+                          <img
+                            src={`${deptIcons[`${deptName} Arrow`]}`}
+                            alt="right-arrow"
+                            className="arrow"
+                          ></img>
+                        </div>
                       </div>
+                      {listing.offices.map((office, k) => {
+                        return (
+                          <span className="office-names" key={k}>
+                            {officeName(k, listing, office)}
+                          </span>
+                        );
+                      })}
+                      <h3 className="job-title">{listing.title}</h3>
                     </div>
-                    {listing.offices.map((office, k) => {
-                      return (
-                        <span className="office-names" key={k}>
-                          {officeName(k, listing, office)}
-                        </span>
-                      );
-                    })}
-                    <h3 className="job-title">{listing.title}</h3>
-                  </div>
+                  </a>
                 );
               }
+              return;
             })}
           </div>
         </Fragment>
