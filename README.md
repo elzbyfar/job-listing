@@ -16,7 +16,9 @@ I was able to identify a strange quirk in the font-family provided. If a word co
 
 ## Future plan
 
-#### Accessibility
+### Accessibility
 - With more time I would incorporate accessibility by making the site keyboard-friendly. I especially would focus on remaking the dropdown menus. I might use the native Select library which has accessibility features built-in. I would also give the user the ability to toggle through the job-listings and switch focus via the keyboard. 
 - I would also improve the markup by including more semantic HTML tags like section, main and article where applicable.
-#### 
+### Responsiveness
+- With more time I would definitely improve responsiveness. This demo responds decently to 2 breakpoints. Using the full site designs I'd build out the different breakpoints to ensure the user experience is consistent throughout devices.
+
