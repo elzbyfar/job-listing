@@ -6,7 +6,7 @@ import "./styles.css";
 const Filters = () => {
   return (
     <section id="filters-container">
-      <div className="filter-container">
+      <div className="filter-container filter-left">
         <span className="filter-title">
           {/* Not sure what is causing this bug, but the combination of TM was automatically producing a trademark superscript. */}
           DEPART<span id="ment"> MENT</span>

@@ -53,11 +53,15 @@
 @media only screen and (max-width: 832px) {
   .dropdown {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     margin-top: 0.75rem;
     border: 1px solid #999;
     color: #666;
     height: 2rem;
-    width: 10.5rem;
+    width: 40%;
+    min-width: 9rem;
+    max-width: 12rem;
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
@@ -66,17 +70,68 @@
   }
   .dropdown-open {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     margin-top: 0.75rem;
     font-size: 1rem;
     border: 1px solid #999;
     color: #666;
     background-color: #fff;
-    height: 9.5rem;
-    width: 10.5rem;
+    height: 8.5rem;
+    width: 40%;
+    min-width: 9rem;
+    max-width: 12rem;
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+  }
+  .dropdown-header {
+    display: flex;
+    padding: 8px 12px;
+    font-size: 1rem;
+    justify-content: space-between;
+  }
+  .dropdown-option {
+    padding: 8px 12px;
+    font-size: 1rem;
+    list-style: none;
+  }
+  .dropdown-option:hover {
+    background-color: #f9f9f9;
+  }
+}
+@media only screen and (max-width: 364px) {
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.75rem;
+    border: 1px solid #999;
+    color: #666;
+    height: 2rem;
+    width: 80%;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: #fff;
+  }
+  .dropdown-open {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.75rem;
+    font-size: 1rem;
+    border: 1px solid #999;
+    color: #666;
+    background-color: #fff;
+    height: 8.5rem;
+    width: 80%;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    z-index: 1;
   }
   .dropdown-header {
     display: flex;
